@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>心跳</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: black;
+    }
+
+    .heart {
+        position: relative;
+        margin: 100px auto;
+        width: 200px;
+        height: 200px;
+        /* 调用动画 */
+        animation-name: shake;
+        /* 调用时间 */
+        animation-duration: 0.5s;
+        /* 调用次数 infinite连续运动 */
+        animation-iteration-count: infinite;
+
+    }
+
+    .heart div {
+        width: 100%;
+        height: 100%;
+        background-color: pink;
+        position: absolute;     
+        animation-name: shadow;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+    }
+
+    .topLeft,
+    .topRight {
+        /* 左上 右上 左下 右下 */
+        border-radius: 100px 100px 0 0;
+    }
+
+    .topLeft {
+        transform: translate(-100px, 0) rotate(-45deg);
+        
+    }
+
+    .topRight {
+        transform: translate(100px, 0) rotate(45deg);
+    }
+
+    .bottom {
+        transform: translate(0, 100px) rotate(45deg);
+    }
+
+    /* @keyframs 关键帧 */
+    @keyframes shake {
+
+        /* 起始时间  scale(长，宽)缩放*/
+        0% {
+            transform: scale(0.9, 0.9);
+        }
+
+        /* 终止时间 */
+        100% {
+            transform: scale(1.1, 1.1);
+        }
+    }
+
+    @keyframes shadow {
+        0% {
+            box-shadow: 0 0 0 pink;
+        }
+
+        100% {
+            box-shadow: 0 0 50px pink;
+        }
+    }
+</style>
+
+<body>
+    <div class="heart">
+        <div class="topLeft"></div>
+        <div class="topRight"></div>
+        <div class="bottom"></div>
+
+    </div>
+</body>
+
+</html>
